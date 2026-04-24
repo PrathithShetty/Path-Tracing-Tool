@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SDN Path Tracing Tool</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1e293b;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #1e293b;
+        }
+
+        .path-item {
+            padding: 10px;
+            margin: 8px 0;
+            border-left: 4px solid #3b82f6;
+            background: #f1f5f9;
+            font-family: monospace;
+        }
+
+        .info {
+            color: #475569;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    SDN Path Tracing Tool
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Packet Forwarding Path</h2>
+
+        {% for p in path %}
+            <div class="path-item">{{ p }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>System Overview</h2>
+
+        <p class="info">
+            This application retrieves flow entries from the SDN controller through REST APIs.
+            Each switch maintains flow rules that define how packets are forwarded.
+        </p>
+
+        <p class="info">
+            By examining the output actions within these rules, the forwarding path of packets across
+            the network is reconstructed and displayed above.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    Software Defined Networking Project
+</footer>
+
+</body>
+</html>
